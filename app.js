@@ -179,12 +179,11 @@ function getSortKey(item) {
     }
 
     if (item.category === 'plants') {
-        const flowerTerms = ['flower', 'tulip', 'allium', 'daisy', 'dandelion', 'poppy', 'orchid', 'cornflower', 'lily', 'sunflower', 'lilac', 'rose', 'peony', 'bloom', 'azalea', 'torchflower', 'pitcher', 'spore_blossom'];
-        for (const ft of flowerTerms) {
-            if (id.includes(ft) || name.includes(ft)) return 'plants_flowers:01_flowers';
+        if (id.includes('flower') || id.includes('tulip') || id.includes('orchid') || id.includes('poppy') || id.includes('daisy') || id.includes('dandelion') || id.includes('allium') || id.includes('cornflower') || id.includes('lily') || id.includes('sunflower') || id.includes('peony') || id.includes('rose') || id.includes('lilac') || id.includes('azalea') || id.includes('torchflower') || id.includes('pitcher') || id === 'spore_blossom') {
+            return 'plants_flowers:01_flowers';
         }
         if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
-        if (id.includes('sapling') || id.includes('propagule')) return 'plants_flowers:03_saplings';
+        if (id.includes('sapling') || id.includes('propagule') || id.includes('leaves')) return 'plants_flowers:03_saplings_leaves';
         return 'plants_flowers:04_other';
     }
     if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
