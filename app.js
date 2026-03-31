@@ -245,11 +245,11 @@ function getSortKey(item) {
 
     if (item.category === 'wood') {
         const id = item.id.toLowerCase();
+        if (id.includes('sapling') || id.includes('propagule')) return 'saplings:all';
+        if (id.includes('leaves')) return 'leaves:all';
         if (id.includes('stripped')) return 'wood:00_stripped';
         if (id.includes('log')) return 'wood:01_log';
         if (id.includes('wood')) return 'wood:02_wood_block';
-        if (id.includes('sapling') || id.includes('propagule')) return 'wood:03_saplings';
-        if (id.includes('leaves')) return 'wood:04_leaves';
         
         const types = ['planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
         for (const t of types) {
@@ -282,7 +282,8 @@ function renderItems(append = false) {
         });
 
         const categoryOrder = {
-            'wood': 1, 'stone': 2, 'earth': 3, 'ores': 4, 'plants': 5,
+            'wood': 1, 'saplings': 1.1, 'leaves': 1.2, 
+            'stone': 2, 'earth': 3, 'ores': 4, 'plants': 5,
             'decoration': 6, 'redstone': 7, 'utility': 8, 'tools': 9,
             'food': 10, 'drops': 11, 'stairs': 12, 'slabs': 13,
             'walls': 14, 'buttons': 15, 'pressure_plates': 16, 'misc': 17
