@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="wither">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Checklist — Minecraft Item Completion Tracker</title>
+  <meta name="description"
+    content="Track your progress in collecting every Minecraft block and item. Search, filter, and mark items as completed.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Minecraft Checklist — Minecraft Tracker">
+  <meta property="og:description" content="Track your progress in collecting every Minecraft block and item.">
+  <meta property="og:image" content="https://mcchecklist.bobjoerules.com/preview.png">
+  <meta property="og:url" content="https://mcchecklist.bobjoerules.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Minecraft Checklist">
+  <meta name="twitter:description" content="Track your progress in collecting every Minecraft block and item.">
+  <meta name="twitter:image" content="https://mcchecklist.bobjoerules.com/preview.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script src="backgrounds.js"></script>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("tswitch-theme");
+      if (savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = prefersDark ? 'wither' : 'snow';
+      }
+
+      const isRandom = localStorage.getItem('custom-bg-random') !== 'false';
+      let bgImg = localStorage.getItem('custom-bg-image');
+      let isTiled = localStorage.getItem('custom-bg-tiled') === 'true';
+      let isPixelated = localStorage.getItem('custom-bg-pixelated') === 'true';
+
+      if (isRandom) {
+        const pool = [];
+        const includeWallpapers = localStorage.getItem('custom-bg-include-wallpapers') !== 'false';
+        const includePaintings = localStorage.getItem('custom-bg-include-paintings') !== 'false';
+        const includeBlocks = localStorage.getItem('custom-bg-include-blocks') !== 'false';
+
+        if (includeWallpapers && typeof BACKGROUND_IMAGES !== 'undefined') {
+          BACKGROUND_IMAGES.forEach(s => pool.push({ s, tiled: false, pixelated: false }));
+        }
+        if (includePaintings && typeof PAINTING_IMAGES !== 'undefined') {
+          PAINTING_IMAGES.forEach(s => pool.push({ s, tiled: false, pixelated: true }));
+        }
+        if (includeBlocks && typeof BLOCK_IMAGES !== 'undefined') {
+          BLOCK_IMAGES.forEach(s => pool.push({ s, tiled: true, pixelated: true }));
+        }
+
+        if (pool.length > 0) {
+          const choice = pool[Math.floor(Math.random() * pool.length)];
+          bgImg = choice.s;
+          isTiled = choice.tiled;
+          isPixelated = choice.pixelated;
+
+          try {
+            localStorage.setItem('custom-bg-image', bgImg);
+            localStorage.setItem('custom-bg-tiled', isTiled);
+            localStorage.setItem('custom-bg-pixelated', isPixelated);
+          } catch (e) { }
+        }
+      }
+
+      if (bgImg && bgImg !== 'null') {
+        const style = document.createElement('style');
+        style.id = 'initial-bg-style';
+        style.innerHTML = `
+          body { 
+            background-image: url("${bgImg}") !important;
+          }
+          body.has-custom-bg { display: block; } 
+        `;
+        document.head.appendChild(style);
+        const observer = new MutationObserver(() => {
+          if (document.body) {
+            document.body.classList.add('has-custom-bg');
+            if (isTiled) document.body.classList.add('tiled');
+            if (isPixelated) document.body.classList.add('pixelated-bg');
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.documentElement, { childList: true });
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+
+  <div class="app-container">
+    <header>
+      <div class="logo">
+        <h1>Minecraft Checklist</h1>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <h2>Items & Blocks</h2>
+          <div class="search-stats" id="total-count">0 Items</div>
+        </div>
+        <div class="filters-container">
+          <div class="search-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-search">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input type="text" id="item-search" placeholder="Search blocks and items..." autocomplete="off">
+            <div class="select-wrapper category-select">
+              <select id="item-category" aria-label="Item Category">
+                <option value="all">All Category</option>
+                <option value="wood">Wood</option>
+                <option value="stone">Stone</option>
+                <option value="earth">Earth</option>
+                <option value="ores">Ores & Metals</option>
+                <option value="tools">Tools & Armor</option>
+                <option value="plants">Plants & Flowers</option>
+                <option value="redstone">Redstone</option>
+                <option value="utility">Utility & Cooking</option>
+                <option value="decoration">Decoration</option>
+                <option value="stairs">Stairs</option>
+                <option value="slabs">Slabs</option>
+                <option value="walls">Walls</option>
+                <option value="buttons">Buttons</option>
+                <option value="pressure_plates">Pressure Plates</option>
+                <option value="materials">Materials</option>
+                <option value="food">Food</option>
+                <option value="drops">Mob Drops</option>
+                <option value="misc">Miscellaneous</option>
+              </select>
+            </div>
+          </div>
+          <div class="filters-row">
+            <div class="filter-toggle">
+              <input type="checkbox" id="hide-creative" title="Hide Creative Only">
+              <label for="hide-creative">Hide Creative</label>
+            </div>
+            <div class="filter-toggle">
+              <input type="checkbox" id="hide-non-stackable" title="Hide Non-Stackable Items">
+              <label for="hide-non-stackable">Hide Non-Stackables</label>
+            </div>
+            <div class="filter-toggle">
+              <input type="checkbox" id="show-skipped" title="Show Skipped Items">
+              <label for="show-skipped">Show Skipped</label>
+            </div>
+            <button id="reset-skips-btn" class="btn btn-secondary btn-xs" title="Restore all skipped items">Reset
+              Skips</button>
+          </div>
+        </div>
+        <div id="items-grid" class="results-container">
+        </div>
+      </section>
+
+      <section class="glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem;">
+            <h2>Completed</h2>
+            <div class="select-wrapper sort-wrapper">
+              <select id="completed-sort" aria-label="Sort Order">
+                <option value="alphabetical">Alphabetical</option>
+                <option value="newest">Recently Completed</option>
+                <option value="category">By Category</option>
+              </select>
+            </div>
+          </div>
+          <div class="summary-badges">
+            <div id="completion-percentage" class="optimal-badge">0%</div>
+            <div id="status-summary" class="status-summary">0 / 0 Done</div>
+          </div>
+        </div>
+        <div id="completed-list" class="tracked-list">
+          <div class="empty-state">Nothing completed yet! Mark some items to see them here.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="glass-panel" style="margin-top: 2rem;">
+      <div class="footer-inner">
+        <div class="theme-controls">
+          <form id="theme-switcher-form">
+            <div class="theme-option">
+              <input type="radio" id="snow-theme" name="theme-choice" value="snow" />
+              <label for="snow-theme" title="Snow Theme"></label>
+            </div>
+            <div class="theme-option">
+              <input type="radio" id="stone-theme" name="theme-choice" value="stone" />
+              <label for="stone-theme" title="Stone Theme"></label>
+            </div>
+            <div class="theme-option">
+              <input type="radio" id="wither-theme" name="theme-choice" value="wither" />
+              <label for="wither-theme" title="Wither Theme"></label>
+            </div>
+          </form>
+        </div>
+
+        <div class="footer-actions">
+          <button id="export-btn" class="footer-btn" title="Export Progress">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span class="mobile-hide">Export</span>
+          </button>
+          <button id="import-btn" class="footer-btn" title="Import Progress">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            <span class="mobile-hide">Import</span>
+          </button>
+          <input type="file" id="import-input" accept=".json" style="display: none;">
+          <button id="open-gallery-btn" class="footer-btn" title="Background Gallery">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <span class="mobile-hide">Backgrounds</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="bg-gallery-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 style="margin:0;">Choose Background</h2>
+        <span class="close-btn" id="close-gallery-btn">&times;</span>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+      </div>
+      <div class="gallery-footer"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px;">
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <label for="bg-image-input" class="upload-btn">Upload Custom Background...</label>
+          <div class="gallery-filter-group">
+            <button id="filter-wallpapers" class="filter-btn active" title="Toggle Wallpapers">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+              </svg>
+            </button>
+            <button id="filter-paintings" class="filter-btn active" title="Toggle Paintings">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9s1.5.67 1.5 1.5S7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+              </svg>
+            </button>
+            <button id="filter-blocks" class="filter-btn active" title="Toggle Blocks">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M21 16.5c0 .38-.21.71-.53.88l-7.97 4.41c-.32.17-.69.17-1 0l-7.97-4.41c-.32-.17-.53-.5-.53-.88V7.5c0-.38.21-.71.53-.88l7.97-4.41c.32-.17.69-.17 1 0l7.97 4.41c.32.17.53.5.53.88v9z" />
+              </svg>
+            </button>
+          </div>
+          <button id="random-bg-toggle" class="gallery-toggle-btn" title="Random on Reload">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
+              <circle cx="15.5" cy="8.5" r="1" fill="currentColor" />
+              <circle cx="15.5" cy="15.5" r="1" fill="currentColor" />
+              <circle cx="8.5" cy="15.5" r="1" fill="currentColor" />
+              <circle cx="12" cy="12" r="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+        <input type="file" id="bg-image-input" accept="image/*" style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <div id="gallery-custom-tooltip"></div>
+
+  <div id="custom-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 id="modal-title">Confirm</h2>
+      <p id="modal-message">Are you sure?</p>
+      <div class="modal-actions">
+        <button id="modal-cancel-btn" class="btn btn-secondary">Cancel</button>
+        <button id="modal-confirm-btn" class="btn btn-accent">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <template id="item-card-template">
+    <div class="item-card">
+      <div class="item-number">#0</div>
+      <img class="item-icon" src="" alt="">
+      <div class="item-details">
+        <div class="item-name"></div>
+        <div class="item-category"></div>
+      </div>
+      <div class="item-actions">
+        <button class="skip-btn" title="Skip this item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+        <div class="checkbox-container">
+          <input type="checkbox" class="complete-checkbox" title="Mark as completed">
+          <div class="checkbox-custom"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="completed-item-template">
+    <div class="tracked-card completed-card">
+      <img class="item-icon" src="" alt="">
+      <div class="item-details">
+        <div class="tracked-header">
+          <div class="header-left">
+            <h3 class="item-name"></h3>
+            <div class="mod-meta-row">
+              <span class="item-category"></span>
+              <span class="mod-date item-date"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="remove-button uncomplete-btn" title="Remove from completed">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-trash-2">
+          <path d="M3 6h18" />
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+          <line x1="10" y1="11" x2="10" y2="17" />
+          <line x1="14" y1="11" x2="14" y2="17" />
+        </svg>
+      </button>
+    </div>
+  </template>
+
+  <script src="minecraft-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
