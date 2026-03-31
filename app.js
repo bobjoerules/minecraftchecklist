@@ -171,7 +171,13 @@ function getSortKey(item) {
 
     if (id.includes('nylium')) return 'nether_flora:nylium';
 
+    if (id.includes('sapling') || id.includes('propagule')) return 'saplings:all';
+    if (id.includes('leaves')) return 'leaves:all';
+
+
+
     if (['slabs', 'stairs', 'walls', 'buttons', 'pressure_plates'].includes(item.category)) {
+        // Only treat as top-level if not wood
         return item.category;
     }
     if (item.category === 'redstone') {
@@ -182,10 +188,8 @@ function getSortKey(item) {
         if (id.includes('flower') || id.includes('tulip') || id.includes('orchid') || id.includes('poppy') || id.includes('daisy') || id.includes('dandelion') || id.includes('allium') || id.includes('cornflower') || id.includes('lily') || id.includes('sunflower') || id.includes('peony') || id.includes('rose') || id.includes('lilac') || id.includes('azalea') || id.includes('torchflower') || id.includes('pitcher') || id === 'spore_blossom') {
             return 'plants_flowers:01_flowers';
         }
-        if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
         return 'plants_flowers:03_other';
     }
-    if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
 
     const coloredMats = ['bed', 'wool', 'carpet', 'terracotta', 'concrete', 'shulker_box', 'glass', 'candle', 'stained_glass', 'banner'];
     for (const mat of coloredMats) {
@@ -243,18 +247,22 @@ function getSortKey(item) {
     if (id.includes('smithing_template')) return 'utility:smithing_templates';
     if (id.includes('dye')) return 'misc_curios:dyes';
 
-    if (item.category === 'wood') {
+    if (item.category === 'mushrooms') {
+        if (id.includes('block') || id.includes('stem')) return 'mushrooms:02_blocks';
+        return 'mushrooms:01_items';
+    }
+
+    const woodCats = ['wood', 'wood_logs', 'wood_blocks', 'stripped_logs', 'stripped_blocks', 'saplings', 'leaves', 'planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
+    if (woodCats.includes(item.category) || item.category === 'wood_misc') {
         const id = item.id.toLowerCase();
-        if (id.includes('sapling') || id.includes('propagule')) return 'saplings:all';
-        if (id.includes('leaves')) return 'leaves:all';
-        if (id.includes('stripped')) return 'wood:00_stripped';
-        if (id.includes('log')) return 'wood:01_log';
-        if (id.includes('wood')) return 'wood:02_wood_block';
         
-        const types = ['planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
-        for (const t of types) {
-            if (id.includes(t)) return `wood_misc:${t}`;
+        if (item.category === 'wood' || item.category === 'wood_misc') {
+            const types = ['planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
+            for (const t of types) {
+                if (id.includes(t)) return t;
+            }
         }
+        return item.category;
     }
 
     return name.split(' ')[0];
@@ -282,11 +290,12 @@ function renderItems(append = false) {
         });
 
         const categoryOrder = {
-            'wood': 1, 'saplings': 1.1, 'leaves': 1.2, 
-            'stone': 2, 'earth': 3, 'ores': 4, 'plants': 5,
-            'decoration': 6, 'redstone': 7, 'utility': 8, 'tools': 9,
-            'food': 10, 'drops': 11, 'stairs': 12, 'slabs': 13,
-            'walls': 14, 'buttons': 15, 'pressure_plates': 16, 'misc': 17
+            'wood_logs': 1, 'wood_blocks': 2, 'stripped_logs': 3, 
+            'stripped_blocks': 4, 'saplings': 5, 'leaves': 6, 'wood': 7,
+            'stone': 8, 'earth': 9, 'ores': 10, 'plants': 11, 'mushrooms': 11.5,
+            'decoration': 12, 'redstone': 13, 'utility': 14, 'tools': 15,
+            'food': 16, 'drops': 17, 'stairs': 18, 'slabs': 19,
+            'walls': 20, 'buttons': 21, 'pressure_plates': 22, 'misc': 23
         };
 
         filteredItems.sort((a, b) => {

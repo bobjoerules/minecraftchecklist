@@ -58,7 +58,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "acacia_leaves",
     "name": "Acacia Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_acacia_leaves.png",
     "creative": false,
     "stackable": true
@@ -66,7 +66,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "acacia_log",
     "name": "Acacia Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_acacia_log.png",
     "creative": false,
     "stackable": true
@@ -90,7 +90,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "acacia_sapling",
     "name": "Acacia Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_acacia_sapling.png",
     "creative": false,
     "stackable": true
@@ -138,7 +138,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "acacia_wood",
     "name": "Acacia Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_acacia_wood.png",
     "creative": false,
     "stackable": true
@@ -338,7 +338,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "azalea_leaves",
     "name": "Azalea Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_azalea_leaves.png",
     "creative": false,
     "stackable": true
@@ -690,7 +690,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "birch_leaves",
     "name": "Birch Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_birch_leaves.png",
     "creative": false,
     "stackable": true
@@ -698,7 +698,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "birch_log",
     "name": "Birch Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_birch_log.png",
     "creative": false,
     "stackable": true
@@ -722,7 +722,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "birch_sapling",
     "name": "Birch Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_birch_sapling.png",
     "creative": false,
     "stackable": true
@@ -770,7 +770,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "birch_wood",
     "name": "Birch Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_birch_wood.png",
     "creative": false,
     "stackable": true
@@ -1386,7 +1386,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "brown_mushroom",
     "name": "Brown Mushroom",
-    "category": "misc",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_brown_mushroom.png",
     "creative": false,
     "stackable": true
@@ -1394,7 +1394,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "brown_mushroom_block",
     "name": "Brown Mushroom Block",
-    "category": "misc",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_brown_mushroom_block.png",
     "creative": false,
     "stackable": true
@@ -1746,7 +1746,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cherry_leaves",
     "name": "Cherry Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_cherry_leaves.png",
     "creative": false,
     "stackable": true
@@ -1754,7 +1754,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cherry_log",
     "name": "Cherry Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_cherry_log.png",
     "creative": false,
     "stackable": true
@@ -1778,7 +1778,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cherry_sapling",
     "name": "Cherry Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_cherry_sapling.png",
     "creative": false,
     "stackable": true
@@ -1826,7 +1826,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cherry_wood",
     "name": "Cherry Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_cherry_wood.png",
     "creative": false,
     "stackable": true
@@ -2642,7 +2642,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "crimson_fungus",
     "name": "Crimson Fungus",
-    "category": "plants",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_crimson_fungus.png",
     "creative": false,
     "stackable": true
@@ -2658,7 +2658,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "crimson_hyphae",
     "name": "Crimson Hyphae",
-    "category": "misc",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_crimson_hyphae.png",
     "creative": false,
     "stackable": true
@@ -2730,7 +2730,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "crimson_stem",
     "name": "Crimson Stem",
-    "category": "misc",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_crimson_stem.png",
     "creative": false,
     "stackable": true
@@ -3018,7 +3018,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "dark_oak_leaves",
     "name": "Dark Oak Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_dark_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -3026,7 +3026,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "dark_oak_log",
     "name": "Dark Oak Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_dark_oak_log.png",
     "creative": false,
     "stackable": true
@@ -3050,7 +3050,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "dark_oak_sapling",
     "name": "Dark Oak Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_dark_oak_sapling.png",
     "creative": false,
     "stackable": true
@@ -3098,7 +3098,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "dark_oak_wood",
     "name": "Dark Oak Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_dark_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -4234,7 +4234,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "flowering_azalea_leaves",
     "name": "Flowering Azalea Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_flowering_azalea_leaves.png",
     "creative": false,
     "stackable": true
@@ -5402,7 +5402,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "jungle_leaves",
     "name": "Jungle Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_jungle_leaves.png",
     "creative": false,
     "stackable": true
@@ -5410,7 +5410,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "jungle_log",
     "name": "Jungle Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_jungle_log.png",
     "creative": false,
     "stackable": true
@@ -5434,7 +5434,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "jungle_sapling",
     "name": "Jungle Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_jungle_sapling.png",
     "creative": false,
     "stackable": true
@@ -5482,7 +5482,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "jungle_wood",
     "name": "Jungle Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_jungle_wood.png",
     "creative": false,
     "stackable": true
@@ -6298,7 +6298,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mangrove_leaves",
     "name": "Mangrove Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_mangrove_leaves.png",
     "creative": false,
     "stackable": true
@@ -6306,7 +6306,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mangrove_log",
     "name": "Mangrove Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_mangrove_log.png",
     "creative": false,
     "stackable": true
@@ -6330,7 +6330,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mangrove_propagule",
     "name": "Mangrove Propagule",
-    "category": "plants",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_mangrove_propagule.png",
     "creative": false,
     "stackable": true
@@ -6386,7 +6386,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mangrove_wood",
     "name": "Mangrove Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_mangrove_wood.png",
     "creative": false,
     "stackable": true
@@ -6618,7 +6618,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mushroom_stem",
     "name": "Mushroom Stem",
-    "category": "misc",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_mushroom_stem.png",
     "creative": false,
     "stackable": true
@@ -6626,7 +6626,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mushroom_stew",
     "name": "Mushroom Stew",
-    "category": "food",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_mushroom_stew.png",
     "creative": false,
     "stackable": false
@@ -7138,7 +7138,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "oak_leaves",
     "name": "Oak Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -7146,7 +7146,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "oak_log",
     "name": "Oak Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_oak_log.png",
     "creative": false,
     "stackable": true
@@ -7170,7 +7170,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "oak_sapling",
     "name": "Oak Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_oak_sapling.png",
     "creative": false,
     "stackable": true
@@ -7218,7 +7218,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "oak_wood",
     "name": "Oak Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -7642,7 +7642,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pale_oak_leaves",
     "name": "Pale Oak Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_pale_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -7650,7 +7650,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pale_oak_log",
     "name": "Pale Oak Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_pale_oak_log.png",
     "creative": false,
     "stackable": true
@@ -7674,7 +7674,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pale_oak_sapling",
     "name": "Pale Oak Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_pale_oak_sapling.png",
     "creative": false,
     "stackable": true
@@ -7722,7 +7722,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pale_oak_wood",
     "name": "Pale Oak Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_pale_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -8866,7 +8866,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "red_mushroom",
     "name": "Red Mushroom",
-    "category": "misc",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_red_mushroom.png",
     "creative": false,
     "stackable": true
@@ -8874,7 +8874,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "red_mushroom_block",
     "name": "Red Mushroom Block",
-    "category": "misc",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_red_mushroom_block.png",
     "creative": false,
     "stackable": true
@@ -9850,7 +9850,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "spruce_leaves",
     "name": "Spruce Leaves",
-    "category": "wood",
+    "category": "leaves",
     "image": "blocks-items images/minecraft_spruce_leaves.png",
     "creative": false,
     "stackable": true
@@ -9858,7 +9858,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "spruce_log",
     "name": "Spruce Log",
-    "category": "wood",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_spruce_log.png",
     "creative": false,
     "stackable": true
@@ -9882,7 +9882,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "spruce_sapling",
     "name": "Spruce Sapling",
-    "category": "wood",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_spruce_sapling.png",
     "creative": false,
     "stackable": true
@@ -9930,7 +9930,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "spruce_wood",
     "name": "Spruce Wood",
-    "category": "wood",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_spruce_wood.png",
     "creative": false,
     "stackable": true
@@ -10122,7 +10122,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_acacia_log",
     "name": "Stripped Acacia Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_acacia_log.png",
     "creative": false,
     "stackable": true
@@ -10130,7 +10130,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_acacia_wood",
     "name": "Stripped Acacia Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_acacia_wood.png",
     "creative": false,
     "stackable": true
@@ -10146,7 +10146,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_birch_log",
     "name": "Stripped Birch Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_birch_log.png",
     "creative": false,
     "stackable": true
@@ -10154,7 +10154,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_birch_wood",
     "name": "Stripped Birch Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_birch_wood.png",
     "creative": false,
     "stackable": true
@@ -10162,7 +10162,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_cherry_log",
     "name": "Stripped Cherry Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_cherry_log.png",
     "creative": false,
     "stackable": true
@@ -10170,7 +10170,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_cherry_wood",
     "name": "Stripped Cherry Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_cherry_wood.png",
     "creative": false,
     "stackable": true
@@ -10178,7 +10178,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_crimson_hyphae",
     "name": "Stripped Crimson Hyphae",
-    "category": "misc",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_crimson_hyphae.png",
     "creative": false,
     "stackable": true
@@ -10186,7 +10186,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_crimson_stem",
     "name": "Stripped Crimson Stem",
-    "category": "misc",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_crimson_stem.png",
     "creative": false,
     "stackable": true
@@ -10194,7 +10194,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_dark_oak_log",
     "name": "Stripped Dark Oak Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_dark_oak_log.png",
     "creative": false,
     "stackable": true
@@ -10202,7 +10202,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_dark_oak_wood",
     "name": "Stripped Dark Oak Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_dark_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -10210,7 +10210,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_jungle_log",
     "name": "Stripped Jungle Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_jungle_log.png",
     "creative": false,
     "stackable": true
@@ -10218,7 +10218,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_jungle_wood",
     "name": "Stripped Jungle Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_jungle_wood.png",
     "creative": false,
     "stackable": true
@@ -10226,7 +10226,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_mangrove_log",
     "name": "Stripped Mangrove Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_mangrove_log.png",
     "creative": false,
     "stackable": true
@@ -10234,7 +10234,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_mangrove_wood",
     "name": "Stripped Mangrove Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_mangrove_wood.png",
     "creative": false,
     "stackable": true
@@ -10242,7 +10242,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_oak_log",
     "name": "Stripped Oak Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_oak_log.png",
     "creative": false,
     "stackable": true
@@ -10250,7 +10250,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_oak_wood",
     "name": "Stripped Oak Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -10258,7 +10258,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_pale_oak_log",
     "name": "Stripped Pale Oak Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_pale_oak_log.png",
     "creative": false,
     "stackable": true
@@ -10266,7 +10266,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_pale_oak_wood",
     "name": "Stripped Pale Oak Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_pale_oak_wood.png",
     "creative": false,
     "stackable": true
@@ -10274,7 +10274,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_spruce_log",
     "name": "Stripped Spruce Log",
-    "category": "wood",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_spruce_log.png",
     "creative": false,
     "stackable": true
@@ -10282,7 +10282,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_spruce_wood",
     "name": "Stripped Spruce Wood",
-    "category": "wood",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_spruce_wood.png",
     "creative": false,
     "stackable": true
@@ -10290,7 +10290,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_warped_hyphae",
     "name": "Stripped Warped Hyphae",
-    "category": "misc",
+    "category": "stripped_blocks",
     "image": "blocks-items images/minecraft_stripped_warped_hyphae.png",
     "creative": false,
     "stackable": true
@@ -10298,7 +10298,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "stripped_warped_stem",
     "name": "Stripped Warped Stem",
-    "category": "misc",
+    "category": "stripped_logs",
     "image": "blocks-items images/minecraft_stripped_warped_stem.png",
     "creative": false,
     "stackable": true
@@ -10826,7 +10826,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "warped_fungus",
     "name": "Warped Fungus",
-    "category": "plants",
+    "category": "saplings",
     "image": "blocks-items images/minecraft_warped_fungus.png",
     "creative": false,
     "stackable": true
@@ -10834,7 +10834,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "warped_fungus_on_a_stick",
     "name": "Warped Fungus On A Stick",
-    "category": "plants",
+    "category": "mushrooms",
     "image": "blocks-items images/minecraft_warped_fungus_on_a_stick.png",
     "creative": false,
     "stackable": false
@@ -10850,7 +10850,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "warped_hyphae",
     "name": "Warped Hyphae",
-    "category": "misc",
+    "category": "wood_blocks",
     "image": "blocks-items images/minecraft_warped_hyphae.png",
     "creative": false,
     "stackable": true
@@ -10922,7 +10922,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "warped_stem",
     "name": "Warped Stem",
-    "category": "misc",
+    "category": "wood_logs",
     "image": "blocks-items images/minecraft_warped_stem.png",
     "creative": false,
     "stackable": true
