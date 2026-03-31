@@ -362,7 +362,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "bamboo",
     "name": "Bamboo",
-    "category": "misc",
+    "category": "food",
     "image": "blocks-items images/minecraft_bamboo.png",
     "creative": false,
     "stackable": true
@@ -853,7 +853,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_black_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "black_shulker_box",
@@ -1053,7 +1053,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_blue_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "blue_ice",
@@ -1381,7 +1381,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_brown_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "brown_mushroom",
@@ -2138,7 +2138,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cocoa_beans",
     "name": "Cocoa Beans",
-    "category": "misc",
+    "category": "food",
     "image": "blocks-items images/minecraft_cocoa_beans.png",
     "creative": false,
     "stackable": true
@@ -2893,7 +2893,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_cyan_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "cyan_shulker_box",
@@ -4693,7 +4693,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_gray_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "gray_shulker_box",
@@ -4813,7 +4813,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_green_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "green_shulker_box",
@@ -5733,7 +5733,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_light_blue_harness.png",
     "creative": true,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "light_blue_shulker_box",
@@ -5853,7 +5853,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_light_gray_harness.png",
     "creative": true,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "light_gray_shulker_box",
@@ -6013,7 +6013,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_lime_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "lime_shulker_box",
@@ -6173,7 +6173,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_magenta_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "magenta_shulker_box",
@@ -7357,7 +7357,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_orange_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "orange_shulker_box",
@@ -7925,7 +7925,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_pink_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "pink_petals",
@@ -8012,7 +8012,7 @@ const MINECRAFT_ITEMS = [
     "name": "Player Head",
     "category": "misc",
     "image": "blocks-items images/minecraft_player_head.png",
-    "creative": false,
+    "creative": true,
     "stackable": true
   },
   {
@@ -8442,7 +8442,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pumpkin",
     "name": "Pumpkin",
-    "category": "misc",
+    "category": "food",
     "image": "blocks-items images/minecraft_pumpkin.png",
     "creative": false,
     "stackable": true
@@ -8541,7 +8541,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_purple_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "purple_shulker_box",
@@ -8861,7 +8861,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_red_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "red_mushroom",
@@ -10330,7 +10330,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "sugar_cane",
     "name": "Sugar Cane",
-    "category": "plants",
+    "category": "food",
     "image": "blocks-items images/minecraft_sugar_cane.png",
     "creative": false,
     "stackable": true
@@ -11578,7 +11578,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "wheat",
     "name": "Wheat",
-    "category": "misc",
+    "category": "food",
     "image": "blocks-items images/minecraft_wheat.png",
     "creative": false,
     "stackable": true
@@ -11586,7 +11586,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "wheat_seeds",
     "name": "Wheat Seeds",
-    "category": "misc",
+    "category": "food",
     "image": "blocks-items images/minecraft_wheat_seeds.png",
     "creative": false,
     "stackable": true
@@ -11669,7 +11669,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_white_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "white_shulker_box",
@@ -11941,7 +11941,7 @@ const MINECRAFT_ITEMS = [
     "category": "misc",
     "image": "blocks-items images/minecraft_yellow_harness.png",
     "creative": false,
-    "stackable": true
+    "stackable": false
   },
   {
     "id": "yellow_shulker_box",

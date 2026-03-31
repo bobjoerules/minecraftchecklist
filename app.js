@@ -157,12 +157,19 @@ function getSortKey(item) {
 
     const stoneMats = ['andesite', 'diorite', 'granite', 'blackstone', 'basalt', 'tuff', 'deepslate', 'cobblestone', 'calcite', 'obsidian', 'dripstone', 'infested'];
     if (item.category === 'stone') {
+        if (id.includes('quartz')) return 'quartz_group:blocks';
         if (id.includes('prismarine') || id.includes('sea_lantern')) return 'ocean_monument:blocks';
         if (id.includes('netherrack') || id.includes('nether_brick')) return 'nether_rock:blocks';
         for (const mat of stoneMats) {
             if (id.includes(mat)) return `stone_blocks:${mat}`;
         }
     }
+
+    if (id.includes('coral')) return 'ocean:coral';
+
+    if (id.includes('quartz')) return 'quartz_group:items';
+
+    if (id.includes('nylium')) return 'nether_flora:nylium';
 
     if (['slabs', 'stairs', 'walls', 'buttons', 'pressure_plates'].includes(item.category)) {
         return item.category;
@@ -172,12 +179,15 @@ function getSortKey(item) {
     }
 
     if (item.category === 'plants') {
-        const flowerTerms = ['flower', 'tulip', 'allium', 'daisy', 'dandelion', 'poppy', 'orchid', 'cornflower', 'lily', 'sunflower', 'lilac', 'rose', 'peony', 'bloom', 'azalea', 'torchflower', 'pitcher'];
+        const flowerTerms = ['flower', 'tulip', 'allium', 'daisy', 'dandelion', 'poppy', 'orchid', 'cornflower', 'lily', 'sunflower', 'lilac', 'rose', 'peony', 'bloom', 'azalea', 'torchflower', 'pitcher', 'spore_blossom'];
         for (const ft of flowerTerms) {
             if (id.includes(ft) || name.includes(ft)) return 'plants_flowers:01_flowers';
         }
-        return 'plants_flowers:02_other';
+        if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
+        if (id.includes('sapling') || id.includes('propagule')) return 'plants_flowers:03_saplings';
+        return 'plants_flowers:04_other';
     }
+    if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
 
     const coloredMats = ['bed', 'wool', 'carpet', 'terracotta', 'concrete', 'shulker_box', 'glass', 'candle', 'stained_glass', 'banner'];
     for (const mat of coloredMats) {
@@ -209,10 +219,10 @@ function getSortKey(item) {
         if (id.includes('fish') || id.includes('cod') || id.includes('salmon') || id.includes('tropical_fish') || id.includes('pufferfish')) {
             return 'food:02_fish';
         }
-        if (id.includes('apple') || id.includes('fruit') || id.includes('berry') || id.includes('melon')) {
+        if (id.includes('apple') || id.includes('fruit') || id.includes('berry') || id.includes('melon') || id.includes('pumpkin')) {
             return 'food:03_fruit_veg';
         }
-        if (id.includes('potato') || id.includes('carrot') || id.includes('beetroot')) {
+        if (id.includes('potato') || id.includes('carrot') || id.includes('beetroot') || id.includes('wheat') || id.includes('seeds')) {
             return 'food:03_fruit_veg';
         }
         if (id.includes('bread') || id.includes('cookie') || id.includes('pie') || id.includes('cake')) {
@@ -230,11 +240,15 @@ function getSortKey(item) {
         return 'drops:materials';
     }
 
+    if (id.includes('banner_pattern')) return 'misc_curios:banner_patterns';
+    if (id.includes('pottery_sherd') || id.includes('pottery_shard')) return 'misc_curios:pottery_sherds';
+    if (id.includes('smithing_template')) return 'utility:smithing_templates';
+    if (id.includes('dye')) return 'misc_curios:dyes';
+
     if (item.category === 'wood') {
         const id = item.id.toLowerCase();
         if (id.includes('stripped')) {
-            if (id.includes('log')) return 'stripped_log';
-            if (id.includes('wood')) return 'stripped_wood';
+            return 'wood:00_stripped';
         }
         const types = ['log', 'wood', 'sapling', 'planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
         for (const t of types) {
