@@ -183,8 +183,7 @@ function getSortKey(item) {
             return 'plants_flowers:01_flowers';
         }
         if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
-        if (id.includes('sapling') || id.includes('propagule') || id.includes('leaves')) return 'plants_flowers:03_saplings_leaves';
-        return 'plants_flowers:04_other';
+        return 'plants_flowers:03_other';
     }
     if (id.includes('mushroom')) return 'plants_flowers:02_mushrooms';
 
@@ -246,12 +245,15 @@ function getSortKey(item) {
 
     if (item.category === 'wood') {
         const id = item.id.toLowerCase();
-        if (id.includes('stripped')) {
-            return 'wood:00_stripped';
-        }
-        const types = ['log', 'wood', 'sapling', 'planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
+        if (id.includes('stripped')) return 'wood:00_stripped';
+        if (id.includes('log')) return 'wood:01_log';
+        if (id.includes('wood')) return 'wood:02_wood_block';
+        if (id.includes('sapling') || id.includes('propagule')) return 'wood:03_saplings';
+        if (id.includes('leaves')) return 'wood:04_leaves';
+        
+        const types = ['planks', 'slab', 'stairs', 'fence_gate', 'fence', 'trapdoor', 'door', 'pressure_plate', 'button', 'hanging_sign', 'sign', 'boat', 'shelf'];
         for (const t of types) {
-            if (id.includes(t)) return t;
+            if (id.includes(t)) return `wood_misc:${t}`;
         }
     }
 

@@ -58,7 +58,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "acacia_leaves",
     "name": "Acacia Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_acacia_leaves.png",
     "creative": false,
     "stackable": true
@@ -338,7 +338,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "azalea_leaves",
     "name": "Azalea Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_azalea_leaves.png",
     "creative": false,
     "stackable": true
@@ -690,7 +690,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "birch_leaves",
     "name": "Birch Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_birch_leaves.png",
     "creative": false,
     "stackable": true
@@ -1746,7 +1746,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "cherry_leaves",
     "name": "Cherry Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_cherry_leaves.png",
     "creative": false,
     "stackable": true
@@ -3018,7 +3018,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "dark_oak_leaves",
     "name": "Dark Oak Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_dark_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -4234,7 +4234,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "flowering_azalea_leaves",
     "name": "Flowering Azalea Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_flowering_azalea_leaves.png",
     "creative": false,
     "stackable": true
@@ -5402,7 +5402,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "jungle_leaves",
     "name": "Jungle Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_jungle_leaves.png",
     "creative": false,
     "stackable": true
@@ -6298,7 +6298,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "mangrove_leaves",
     "name": "Mangrove Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_mangrove_leaves.png",
     "creative": false,
     "stackable": true
@@ -7138,7 +7138,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "oak_leaves",
     "name": "Oak Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -7642,7 +7642,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "pale_oak_leaves",
     "name": "Pale Oak Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_pale_oak_leaves.png",
     "creative": false,
     "stackable": true
@@ -9850,7 +9850,7 @@ const MINECRAFT_ITEMS = [
   {
     "id": "spruce_leaves",
     "name": "Spruce Leaves",
-    "category": "plants",
+    "category": "wood",
     "image": "blocks-items images/minecraft_spruce_leaves.png",
     "creative": false,
     "stackable": true
