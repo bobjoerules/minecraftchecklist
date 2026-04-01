@@ -40,14 +40,16 @@ function init() {
     updateStats();
 
     if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.toLowerCase().trim();
+        searchInput.addEventListener('input', () => {
+            currentBatch = 0; // Reset batch on new search
+            searchQuery = searchInput.value.toLowerCase().trim();
             renderItems();
         });
     }
 
     if (categorySelect) {
         categorySelect.addEventListener('change', (e) => {
+            currentBatch = 0; // Reset batch on new category
             selectedCategory = e.target.value;
             renderItems();
         });
@@ -64,7 +66,7 @@ function init() {
     if (hideCreativeCheck) {
         hideCreativeCheck.addEventListener('change', (e) => {
             localStorage.setItem('blockcheck_hide_creative', e.target.checked);
-            renderItems();
+            renderItems(false, true);
             updateStats();
         });
     }
@@ -72,7 +74,7 @@ function init() {
     if (hideNonStackableCheck) {
         hideNonStackableCheck.addEventListener('change', (e) => {
             localStorage.setItem('blockcheck_hide_nonstackable', e.target.checked);
-            renderItems();
+            renderItems(false, true);
             updateStats();
         });
     }
@@ -80,7 +82,7 @@ function init() {
     if (showSkippedCheck) {
         showSkippedCheck.addEventListener('change', (e) => {
             localStorage.setItem('blockcheck_show_skipped', e.target.checked);
-            renderItems();
+            renderItems(false, true);
             updateStats();
         });
     }
@@ -268,13 +270,17 @@ function getSortKey(item) {
     return name.split(' ')[0];
 }
 
-function renderItems(append = false) {
+function renderItems(append = false, preserveScroll = false) {
     if (!itemsGrid || typeof MINECRAFT_ITEMS === 'undefined') return;
 
-    if (!append) {
-        itemsGrid.innerHTML = '';
-        currentBatch = 0;
+    const scrollContainer = itemsGrid;
+    const previousScroll = scrollContainer.scrollTop;
 
+    if (!append) {
+        const totalToRender = (currentBatch + 1) * BATCH_SIZE;
+        
+        itemsGrid.innerHTML = '';
+        
         filteredItems = MINECRAFT_ITEMS.filter(item => {
             const matchesSearch = item.name.toLowerCase().includes(searchQuery);
             const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
@@ -313,14 +319,35 @@ function renderItems(append = false) {
             itemsGrid.innerHTML = '<div class="empty-state">No items found for this search/category.</div>';
             return;
         }
+
+        const batch = filteredItems.slice(0, totalToRender);
+        if (batch.length === 0) return;
+
+        renderBatch(batch, 0);
+
+        if (preserveScroll) {
+            requestAnimationFrame(() => {
+                scrollContainer.scrollTop = previousScroll;
+            });
+        }
+        
+        if (totalToRender < filteredItems.length) {
+            setupLoadMoreObserver();
+        }
+        return;
     }
 
     const start = currentBatch * BATCH_SIZE;
-    const end = start + BATCH_SIZE;
-    const batch = filteredItems.slice(start, end);
-
+    const batch = filteredItems.slice(start, start + BATCH_SIZE);
     if (batch.length === 0) return;
+    renderBatch(batch, start);
 
+    if (start + BATCH_SIZE < filteredItems.length) {
+        setupLoadMoreObserver();
+    }
+}
+
+function renderBatch(batch, start) {
     const getHeader = (it) => getSortKey(it).split(':')[0];
     let currentType = (start > 0) ? getHeader(filteredItems[start - 1]) : null;
 
@@ -399,10 +426,6 @@ function renderItems(append = false) {
     });
 
     itemsGrid.appendChild(fragment);
-
-    if (end < filteredItems.length) {
-        setupLoadMoreObserver();
-    }
 }
 
 function setupLoadMoreObserver() {
@@ -477,7 +500,7 @@ function toggleComplete(id) {
     localStorage.setItem('blockcheck_skipped_ids', JSON.stringify(skippedIds));
 
     updateStats();
-    renderItems();
+    renderItems(false, true);
     renderCompleted();
 }
 
@@ -489,6 +512,7 @@ function toggleSkip(id) {
         if (completedIds[id]) delete completedIds[id];
     }
     saveState();
+    renderItems(false, true);
 }
 
 function completeGroup(headerPrefix, filteredList) {
